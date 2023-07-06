@@ -14,6 +14,10 @@ function Book(title, author, pages, hasRead) {
     }
 }
 
-const book = new Book("blah", "dumb author", "555", true)
+const testBookOne = new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true)
+const testBookTwo = new Book("No Dogs Go To Hell", "Miff Stabson", "18", true)
+const testBookThree = new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)
 
-console.log(book.info())
+let bookList = [{testBookOne}, {testBookTwo}, {testBookThree}]
+
+console.log(bookList)
