@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 100px;
+    border: 2px solid red;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26px;
+    border: 2px solid blue;
+
+}
