@@ -16,10 +16,14 @@ function populateBooks(bookList) {
         pagesDiv.classList.add("pages")
         hasReadDiv.classList.add("hasRead")
 
+        const hasReadButton = document.createElement("button")
+        hasReadButton.innerText = bookList[i].hasRead
+        hasReadDiv.appendChild(hasReadButton)
+
         titleDiv.innerText = "\"" + bookList[i].title + "\""
         authorDiv.innerText = bookList[i].author
         pagesDiv.innerText = bookList[i].pages + " pages"
-        hasReadDiv.innerText = bookList[i].hasRead
+        // hasReadDiv.innerText = bookList[i].hasRead
 
         bookDiv.appendChild(titleDiv)
         bookDiv.appendChild(authorDiv)
