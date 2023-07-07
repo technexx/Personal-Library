@@ -24,8 +24,14 @@
     justify-content: center;
 }
 
-.add-button img {
+.add-button {
     display: flex;
+}
+
+.add-button button {
+    width: 100px;
+    height: auto;
+    /* background-color: white; */
 }
 
 .title {
@@ -54,4 +60,9 @@
     border-radius: 10%;
     gap: 10px;
     margin: 20px;
+}
+
+/*top, right, bottom, left*/
+.card-holder button {
+    padding: 10px 20px 10px 20px;
 }

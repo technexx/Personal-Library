@@ -23,7 +23,6 @@ function populateBooks(bookList) {
         titleDiv.innerText = "\"" + bookList[i].title + "\""
         authorDiv.innerText = bookList[i].author
         pagesDiv.innerText = bookList[i].pages + " pages"
-        // hasReadDiv.innerText = bookList[i].hasRead
 
         bookDiv.appendChild(titleDiv)
         bookDiv.appendChild(authorDiv)
@@ -40,6 +39,8 @@ function Book(title, author, pages, hasRead) {
     this.pages = pages
     this.hasRead = hasRead
 
+    if (hasRead) this.hasRead = "Read"; else this.hasRead = "Not Read"
+
     this.info = function() {
         let userHasRead = ""
         if (hasRead) userHasRead = "has read"; else userHasRead = "not read yet"
@@ -52,6 +53,10 @@ let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true),
 
 populateBooks(myLibrary)
 
-// myLibrary.forEach(book => {
-//     //Todo: Create DOM elements
-// })
+document.querySelector(".add-button button").addEventListener("click", () => {
+    console.log("clicked!")
+})
+
+function addPopUp() {
+
+}
