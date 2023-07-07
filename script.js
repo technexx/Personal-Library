@@ -16,10 +16,10 @@ function populateBooks(bookList) {
         pagesDiv.classList.add("pages")
         hasReadDiv.classList.add("hasRead")
 
-        titleDiv.innerText = bookList.title
-        authorDiv.innerText = bookList.author
-        pagesDiv.innerText = bookList.pages
-        hasReadDiv.innerText = bookList.hasRead
+        titleDiv.innerText = bookList[i].title
+        authorDiv.innerText = bookList[i].author
+        pagesDiv.innerText = bookList[i].pages
+        hasReadDiv.innerText = bookList[i].hasRead
 
         bookDiv.appendChild(titleDiv)
         bookDiv.appendChild(authorDiv)
@@ -44,16 +44,14 @@ function Book(title, author, pages, hasRead) {
     }
 }
 
-const testBookOne = new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true)
-const testBookTwo = new Book("No Dogs Go To Hell", "Miff Stabson", "18", true)
-const testBookThree = new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)
-
-let myLibrary = [{testBookOne}, {testBookTwo}, {testBookThree}]
-
-myLibrary.forEach(book => {
-    //Todo: Create DOM element
-})
+let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true), new Book("No Dogs Go To Hell", "Miff Stabson", "18", true),  new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)]
 
 populateBooks(myLibrary)
 
-console.log(myLibrary)
+// const testBookOne = new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true)
+// const testBookTwo = new Book("No Dogs Go To Hell", "Miff Stabson", "18", true)
+// const testBookThree = new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)
+
+// myLibrary.forEach(book => {
+//     //Todo: Create DOM elements
+// })
