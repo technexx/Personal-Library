@@ -71,19 +71,42 @@
     flex-direction: column;
 }
 
-.modal p {
+#form-header {
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 30px;
+    font-weight: bold;
 }
 
 #add-book-form {
     gap: 30px;
 }
 
-#add-book-form *{
+.read-yet {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 15px
+}
+
+.read-yet #read {
+    width: 22px;
+}
+
+.read-yet label {
+    font-size: 22px;
+}
+
+#read-yet-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+#add-book-form * {
     height: 35px;
     border-radius: 5px;
+    font-size: 22px;
 }
 
 .modal {
