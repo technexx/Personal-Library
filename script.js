@@ -52,11 +52,3 @@ function Book(title, author, pages, hasRead) {
 let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true), new Book("No Dogs Go To Hell", "Miff Stabson", "18", true),  new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)]
 
 populateBooks(myLibrary)
-
-document.querySelector(".add-button button").addEventListener("click", () => {
-    console.log("clicked!")
-})
-
-function addPopUp() {
-
-}
