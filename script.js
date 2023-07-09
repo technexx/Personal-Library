@@ -1,5 +1,6 @@
 
 const bookCards = document.querySelector(".card-holder")
+const submitButton = document.querySelector("#submit")
 
 function populateBooks(bookList) {
     for (let i=0; i<Object.keys(bookList).length; i++) {
@@ -50,5 +51,17 @@ function Book(title, author, pages, hasRead) {
 }
 
 let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true), new Book("No Dogs Go To Hell", "Miff Stabson", "18", true),  new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)]
+
+// function dismissPopup() {
+//     const a = document.createElement("a")
+//     a.href = "#"
+//     submitButton.appendChild(a)
+//     console.log("dismissed!")
+// }
+
+submitButton.addEventListener("click", () => {
+    window.location = "#"
+    dismissPopup()
+})
 
 populateBooks(myLibrary)
