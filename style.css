@@ -98,7 +98,6 @@
 }
 
 #read-yet-text {
-    text-align: center;
     margin-top: 30px;
     font-size: 22px;
 }
@@ -107,6 +106,18 @@
     height: 35px;
     border-radius: 5px;
     font-size: 22px;
+}
+
+#submit {
+    display: block;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+    height: 40px;
+    width: 160px;
+    background-color: lavender;
+    border-radius: 5px;
+    font-size: 24px;
 }
 
 .modal {
@@ -128,7 +139,7 @@
     position: absolute;
     background: lightcyan;
     width: 300px;
-    height: 300px;
+    height: 350px;
     padding: 1em 2em;
     border-radius: 10px;
 }
