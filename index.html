@@ -22,15 +22,15 @@
             <div class="content">
                 <p id="form-header">Add a book!</p>
                 <form id="add-book-form">
-                    <input type="text" minlength="2"  maxlength="50" placeholder="Title">
-                    <input type="text" minlength="2"  maxlength="50" placeholder="Author">
-                    <input type="number" minlength="2"  maxlength="50" placeholder="Pages">
+                    <input type="text" id="title-form" minlength="2"  maxlength="50" placeholder="Title" required>
+                    <input type="text" id="author-form" minlength="2"  maxlength="50" placeholder="Author" required>
+                    <input type="number" id="pages-form" minlength="2"  maxlength="50" placeholder="Pages" required>
                 </form>
                 <div class="read-yet">
                     <label for="read">Read yet?</label>
-                    <input type="checkbox" id="read" name="read" value="true">
+                    <input type="checkbox" id="read-checkbox" name="read" value="true">
                 </div>
-                <button id="submit"> <a href = "#"></a>Submit</button>
+                <button id="submit" type="submit" form="add-book-form"></a>Submit</button>
                 <a href="#"
                 class="box-close">
                  x

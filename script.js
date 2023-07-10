@@ -44,7 +44,7 @@ function Book(title, author, pages, hasRead) {
 
     this.info = function() {
         let userHasRead = ""
-        if (hasRead) userHasRead = "has read"; else userHasRead = "not read yet"
+        if (hasRead) userHasRead = "has read"; else userHasRead = " not read yet"
         
         return `${title} by ${author}, ${pages} pages, ${userHasRead}`
     }
@@ -52,16 +52,14 @@ function Book(title, author, pages, hasRead) {
 
 let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true), new Book("No Dogs Go To Hell", "Miff Stabson", "18", true),  new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)]
 
-// function dismissPopup() {
-//     const a = document.createElement("a")
-//     a.href = "#"
-//     submitButton.appendChild(a)
-//     console.log("dismissed!")
-// }
+function checkFormFieldsHaveText() {
+    if (document.getElementById("title-form").value.length >=2 && document.getElementById("author-form").value.length >=2 && document.getElementById("pages-form").value.length >= 1) { console.log ("ok") ; return true }
+}
+
+function dismissPopup() { window.location = "#" }
 
 submitButton.addEventListener("click", () => {
-    window.location = "#"
-    dismissPopup()
+    if (checkFormFieldsHaveText()) dismissPopup()
 })
 
 populateBooks(myLibrary)
