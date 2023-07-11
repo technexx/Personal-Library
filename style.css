@@ -62,10 +62,15 @@
 }
 
 /*auto margin fills up empty space*/
-.card-holder img {
-    color: purple;
+.card-holder #edit-image {
+    padding: 0px;
     margin-left: auto;
+    margin-top: -30px;
     margin-right: 10px;
+}
+
+.card-holder .title {
+    margin-top: 20px;
 }
 
 /*top, right, bottom, left*/

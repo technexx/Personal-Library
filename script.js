@@ -1,3 +1,4 @@
+
 const bookCards = document.querySelector(".card-holder")
 const titleField = document.getElementById("title-form")
 const authorField = document.getElementById("author-form")
@@ -29,6 +30,16 @@ function setEditButtonListener() {
             populateFormWithSelectedBook(index)
             addOrEditMode = "EDIT"
             selectedBookPosition = index
+        })
+    })
+}
+
+function setHasReadButtonListener() {
+    const buttons = bookCards.querySelectorAll("button")
+
+    buttons.forEach(function callback(value, index) {
+        buttons[index].addEventListener("click", () => {
+            console.log("position " + index)
         })
     })
 }
@@ -118,14 +129,15 @@ function updateBookElementsFromArray() {
         bookDiv.appendChild(hasReadDiv)
     
         bookCards.appendChild(bookDiv)        
-
-        const editImage = document.getElementById("edit-image")
-        editImage.addEventListener("click", () => {
-        })
     })
 
     setEditButtonListener()
+    setHasReadButtonListener()
 }
+
+// document.querySelector(".card-holder button").addEventListener("click", () => {
+//     console.log("clicked!")
+// })
 
 function Book(title, author, pages, hasRead) {
     this.title = title
