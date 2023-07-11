@@ -5,25 +5,14 @@ const pagesField = document.getElementById("pages-form")
 const hadReadCheckbox = document.getElementById("read-checkbox")
 const submitButton = document.getElementById("submit")
 
+let addOrEditMode = ""
+let selectedBookPosition = ""
+
 document.querySelector(".add-button").addEventListener("click", () => { 
     window.open("#add-popup", "_parent")
+    addOrEditMode = "ADD"
+    clearFormFields()
 })
-let addOrEditMode = ""
-
-submitButton.addEventListener("click", () => {
-    if (checkFormFieldsHaveText()) {
-        addBookToArray(bookObjectFromForm())
-        updateBookElementsFromArray()
-        dismissPopup()
-        clearFormFields()
-    }
-})
-
-function checkFormFieldsHaveText() {
-    if (titleField.value.length >=2 && authorField.value.length >=2 && pagesField.value.length >= 1) { return true; }
-}
-
-function dismissPopup() { window.location = "#" }
 
 function clearFormFields() {
     titleField.value = ""
@@ -31,8 +20,42 @@ function clearFormFields() {
     pagesField.value = ""
 }
 
+function setEditButtonListener() {
+    const buttons = document.querySelectorAll("#edit-image")
+
+    buttons.forEach(function callback(value, index) {
+        buttons[index].addEventListener("click", () => {
+            window.open("#add-popup", "_parent")
+            populateFormWithSelectedBook(index)
+            addOrEditMode = "EDIT"
+            selectedBookPosition = index
+        })
+    })
+}
+
+function deleteBookFromLibrary() {
+
+}
+
+submitButton.addEventListener("click", () => {
+    if (checkFormFieldsHaveText()) {
+        if (addOrEditMode === "ADD") {
+            addBookToArray()
+        }
+        if (addOrEditMode === "EDIT") {
+            editBookFromArray(selectedBookPosition)
+        }
+        updateBookElementsFromArray()
+        dismissPopup()
+    }
+})
+
 function addBookToArray() {
     myLibrary.push(bookObjectFromForm())
+}
+
+function editBookFromArray(position) {
+    myLibrary.splice(position, 1, bookObjectFromForm())
 }
 
 function bookObjectFromForm() {
@@ -40,6 +63,20 @@ function bookObjectFromForm() {
         titleField.value, authorField.value, pagesField.value, hadReadCheckbox.value
     )
 }
+
+function checkFormFieldsHaveText() {
+    if (titleField.value.length >=2 && authorField.value.length >=2 && pagesField.value.length >= 1) { return true; }
+}
+
+
+function populateFormWithSelectedBook(arrayPosition) {
+    titleField.value = myLibrary[arrayPosition].title
+    authorField.value = myLibrary[arrayPosition].author
+    pagesField.value = myLibrary[arrayPosition].pages
+    hadReadCheckbox.value = myLibrary[arrayPosition].hasRead
+}
+
+function dismissPopup() { window.location = "#" }
 
 function updateBookElementsFromArray() {
     const booksInDom = document.querySelectorAll(".book")
@@ -88,29 +125,6 @@ function updateBookElementsFromArray() {
     })
 
     setEditButtonListener()
-}
-
-function setEditButtonListener() {
-    const buttons = document.querySelectorAll("#edit-image")
-
-    buttons.forEach(function callback(value, index) {
-        buttons[index].addEventListener("click", () => {
-            window.open("#add-popup", "_parent")
-            populateFormWithSelectedBook(index)
-            addOrEditMode = "EDIT"
-        })
-    })
-}
-
-function populateFormWithSelectedBook(arrayPosition) {
-    titleField.value = myLibrary[arrayPosition].title
-    authorField.value = myLibrary[arrayPosition].author
-    pagesField.value = myLibrary[arrayPosition].pages
-    hadReadCheckbox.value = myLibrary[arrayPosition].hasRead
-}
-
-function deleteBookFromLibrary() {
-
 }
 
 function Book(title, author, pages, hasRead) {
