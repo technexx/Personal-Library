@@ -5,6 +5,11 @@ const pagesField = document.getElementById("pages-form")
 const hadReadCheckbox = document.getElementById("read-checkbox")
 const submitButton = document.getElementById("submit")
 
+document.querySelector(".add-button").addEventListener("click", () => { 
+    window.open("#add-popup", "_parent")
+})
+let addOrEditMode = ""
+
 submitButton.addEventListener("click", () => {
     if (checkFormFieldsHaveText()) {
         addBookToArray(bookObjectFromForm())
@@ -82,16 +87,17 @@ function updateBookElementsFromArray() {
         })
     })
 
-    setEditButtonListeners()
+    setEditButtonListener()
 }
 
-function setEditButtonListeners() {
+function setEditButtonListener() {
     const buttons = document.querySelectorAll("#edit-image")
 
     buttons.forEach(function callback(value, index) {
         buttons[index].addEventListener("click", () => {
             window.open("#add-popup", "_parent")
             populateFormWithSelectedBook(index)
+            addOrEditMode = "EDIT"
         })
     })
 }
@@ -121,6 +127,18 @@ function Book(title, author, pages, hasRead) {
         
         return `${title} by ${author}, ${pages} pages, ${userHasRead}`
     }
+}
+
+// document.addEventListener("click", (e) => {
+//     // console.log(document.querySelector(".modal").style.visibility)
+//     if (!e.target.closest(".content")) {
+//         closePopUp()
+//     } 
+// })
+
+function closePopUp() {
+    const popUp = document.querySelector(".modal")
+    popUp.style.display = "none"
 }
 
 ///////////////////////////////////////////////////////////
