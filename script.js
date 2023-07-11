@@ -8,7 +8,7 @@ const submitButton = document.getElementById("submit")
 submitButton.addEventListener("click", () => {
     if (checkFormFieldsHaveText()) {
         addBookToArray(bookObjectFromForm())
-        addBookToLibrary()
+        updateBookElementsFromArray()
         dismissPopup()
         clearFormFields()
     }
@@ -36,44 +36,49 @@ function bookObjectFromForm() {
     )
 }
 
-function addBookToLibrary() {
+function updateBookElementsFromArray() {
+    const booksInDom = document.querySelectorAll(".book")
+    booksInDom.forEach(book => {
+        book.remove()
+    })
+    
     myLibrary.forEach(function callback(value, index) {
-        console.log("array iterating: current title is " + myLibrary[index].title + " and submitted title is " + myLibrary[0].title)
+        const bookDiv = document.createElement("div")
+        bookDiv.classList.add("book")
+    
+        const titleDiv = document.createElement("div")
+        const authorDiv = document.createElement("div")
+        const pagesDiv = document.createElement("div")
+        const hasReadDiv = document.createElement("div")
+        const editElement = document.createElement("img")
+    
+        titleDiv.classList.add("title")
+        authorDiv.classList.add("author")
+        pagesDiv.classList.add("pages")
+        hasReadDiv.classList.add("hasRead")
+        editElement.setAttribute("id", "edit-image")
+        
+        titleDiv.innerText = myLibrary[index].title
+        authorDiv.innerText = myLibrary[index].author
+        pagesDiv.innerText = myLibrary[index].pages + " pages"
+        editElement.src = "./images/pencil.svg"
+        editElement.style.width = "25px"
+        editElement.style.height = "25px"
+    
+        const hasReadButton = document.createElement("button")
+        hasReadButton.innerText = myLibrary[index].hasRead
+        hasReadDiv.appendChild(hasReadButton)
+    
+        bookDiv.appendChild(editElement)
+        bookDiv.appendChild(titleDiv)
+        bookDiv.appendChild(authorDiv)
+        bookDiv.appendChild(pagesDiv)
+        bookDiv.appendChild(hasReadDiv)
+    
+        bookCards.appendChild(bookDiv)        
 
         if (myLibrary.title !== myLibrary[index].title) {
-            const bookDiv = document.createElement("div")
-            bookDiv.classList.add("book")
-        
-            const titleDiv = document.createElement("div")
-            const authorDiv = document.createElement("div")
-            const pagesDiv = document.createElement("div")
-            const hasReadDiv = document.createElement("div")
-            const editElement = document.createElement("img")
-        
-            titleDiv.classList.add("title")
-            authorDiv.classList.add("author")
-            pagesDiv.classList.add("pages")
-            hasReadDiv.classList.add("hasRead")
-            editElement.setAttribute("id", "edit-image")
-            
-            titleDiv.innerText = myLibrary[index].title
-            authorDiv.innerText = myLibrary[index].author
-            pagesDiv.innerText = myLibrary[index].pages + " pages"
-            editElement.src = "./images/pencil.svg"
-            editElement.style.width = "25px"
-            editElement.style.height = "25px"
-        
-            const hasReadButton = document.createElement("button")
-            hasReadButton.innerText = myLibrary[index].hasRead
-            hasReadDiv.appendChild(hasReadButton)
-        
-            bookDiv.appendChild(editElement)
-            bookDiv.appendChild(titleDiv)
-            bookDiv.appendChild(authorDiv)
-            bookDiv.appendChild(pagesDiv)
-            bookDiv.appendChild(hasReadDiv)
-        
-            bookCards.appendChild(bookDiv)
+
         }
     })
 
@@ -110,5 +115,4 @@ function Book(title, author, pages, hasRead) {
 
 let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true), new Book("No Dogs Go To Hell", "Miff Stabson", "18", true),  new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)]
 
-addBookToArray(myLibrary)
-addBookToLibrary()
+updateBookElementsFromArray()
