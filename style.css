@@ -9,10 +9,10 @@
     display: grid;
     height: 100vh;
     grid-template-rows: 100px 100px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
-.heading {
+.heading { 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,7 +54,7 @@
     flex-direction: column;
     justify-content: center;
     height: 250px;
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
     border: 2px solid yellow;
     border-radius: 10%;

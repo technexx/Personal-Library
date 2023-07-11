@@ -77,18 +77,30 @@ function updateBookElementsFromArray() {
     
         bookCards.appendChild(bookDiv)        
 
-        if (myLibrary.title !== myLibrary[index].title) {
-
-        }
+        const editImage = document.getElementById("edit-image")
+        editImage.addEventListener("click", () => {
+        })
     })
 
+    setEditButtonListeners()
+}
 
-    //Todo: Get position of book element.
-    // const editImage = document.getElementById("edit-image")
+function setEditButtonListeners() {
+    const buttons = document.querySelectorAll("#edit-image")
 
-    // editImage.addEventListener("click", () => {
-    //     console.log("clicked at DOM posiiton " + )
-    // })
+    buttons.forEach(function callback(value, index) {
+        buttons[index].addEventListener("click", () => {
+            window.open("#add-popup", "_parent")
+            populateFormWithSelectedBook(index)
+        })
+    })
+}
+
+function populateFormWithSelectedBook(arrayPosition) {
+    titleField.value = myLibrary[arrayPosition].title
+    authorField.value = myLibrary[arrayPosition].author
+    pagesField.value = myLibrary[arrayPosition].pages
+    hadReadCheckbox.value = myLibrary[arrayPosition].hasRead
 }
 
 function deleteBookFromLibrary() {
