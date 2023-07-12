@@ -91,6 +91,12 @@
 
 .card-holder .title {
     margin-top: 20px;
+    font-style: italic;
+}
+
+.card-holder .pages {
+    font-size: 18px;
+    font-weight: 500;
 }
 
 /*top, right, bottom, left*/

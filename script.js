@@ -138,6 +138,8 @@ function updateBookElementsFromArray() {
       
         //Elements are not being created until this populates, so we need to change their CSS here.
         let hasReadText = ""
+        hasReadButton.style.fontSize = "16px"
+
         if (myLibrary[index].hasRead) {
             hasReadText = "Read"
             hasReadButton.style.backgroundColor = "#a7f3d0"
@@ -155,13 +157,13 @@ function updateBookElementsFromArray() {
 
         editElement.setAttribute("id", "edit-image")
         editElement.src = "./images/pencil.svg"
-        editElement.style.width = "25px"
-        editElement.style.height = "25px"
+        editElement.style.width = "30px"
+        editElement.style.height = "30px"
 
         deleteElement.setAttribute("id", "delete-image")
         deleteElement.src = "/images/delete.svg"
-        deleteElement.style.width = "25px"
-        deleteElement.style.height = "25px"
+        deleteElement.style.width = "30px"
+        deleteElement.style.height = "30px"
 
         iconsDiv.appendChild(deleteElement)
         iconsDiv.appendChild(editElement)
