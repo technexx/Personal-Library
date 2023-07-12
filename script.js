@@ -39,7 +39,9 @@ function setHasReadButtonListener() {
 
     buttons.forEach(function callback(value, index) {
         buttons[index].addEventListener("click", () => {
-            console.log("position " + index)
+            myLibrary[index].hasRead = !myLibrary[index].hasRead
+
+            updateBookElementsFromArray()
         })
     })
 }
@@ -119,7 +121,11 @@ function updateBookElementsFromArray() {
         editElement.style.height = "25px"
     
         const hasReadButton = document.createElement("button")
-        hasReadButton.innerText = myLibrary[index].hasRead
+
+        let hasReadText = ""
+        if (myLibrary[index].hasRead) hasReadText = "Read"; else hasReadText = "Not Read"
+
+        hasReadButton.innerText = hasReadText
         hasReadDiv.appendChild(hasReadButton)
     
         bookDiv.appendChild(editElement)
@@ -146,13 +152,6 @@ function Book(title, author, pages, hasRead) {
     this.hasRead = hasRead
 
     if (hasRead) this.hasRead = "Read"; else this.hasRead = "Not Read"
-
-    this.info = function() {
-        let userHasRead = ""
-        if (hasRead) userHasRead = "has read"; else userHasRead = " not read yet"
-        
-        return `${title} by ${author}, ${pages} pages, ${userHasRead}`
-    }
 }
 
 // document.addEventListener("click", (e) => {
