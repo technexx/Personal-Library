@@ -10,7 +10,7 @@ const submitButton = document.getElementById("submit")
 let addOrEditMode = ""
 let selectedBookPosition = ""
 
-document.querySelector(".add-button").addEventListener("click", () => { 
+document.querySelector("#add-image").addEventListener("click", () => { 
     window.open("#add-popup", "_parent")
     addOrEditMode = "ADD"
     clearFormFields()
