@@ -28,6 +28,10 @@
     justify-content: center;
 }
 
+.add-button:hover {
+    cursor: pointer;
+}
+
 .add-button button {
     width: 100px;
     height: auto;
@@ -41,6 +45,10 @@
 
 .heading .log-in {
     margin-right: 3vw;
+}
+
+.log-in:hover {
+    cursor: pointer;
 }
 
 .card-holder {

@@ -1,4 +1,6 @@
 
+const login = document.querySelector(".log-in")
+const addBook = document.querySelector("#add-image")
 const bookCards = document.querySelector(".card-holder")
 const popupHeader = document.getElementById("form-header")
 const titleField = document.getElementById("title-form")
@@ -10,11 +12,15 @@ const submitButton = document.getElementById("submit")
 let addOrEditMode = ""
 let selectedBookPosition = ""
 
-document.querySelector("#add-image").addEventListener("click", () => { 
+login.addEventListener("click", () => {
+    window.open("#", "_parent")
+})
+
+addBook.addEventListener("click", () => { 
     window.open("#add-popup", "_parent")
     addOrEditMode = "ADD"
-    clearFormFields()
     popupHeader.innerText = "Add a book!"
+    clearFormFields()
 })
 
 function clearFormFields() {
