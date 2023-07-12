@@ -3,7 +3,7 @@ const bookCards = document.querySelector(".card-holder")
 const titleField = document.getElementById("title-form")
 const authorField = document.getElementById("author-form")
 const pagesField = document.getElementById("pages-form")
-const hadReadCheckbox = document.getElementById("read-checkbox")
+const hasReadCheckbox = document.getElementById("read-checkbox")
 const submitButton = document.getElementById("submit")
 
 let addOrEditMode = ""
@@ -40,7 +40,7 @@ function setHasReadButtonListener() {
     buttons.forEach(function callback(value, index) {
         buttons[index].addEventListener("click", () => {
             myLibrary[index].hasRead = !myLibrary[index].hasRead
-
+            hasReadCheckbox.checked = myLibrary[index].hasRead
             updateBookElementsFromArray()
         })
     })
@@ -73,7 +73,7 @@ function editBookFromArray(position) {
 
 function bookObjectFromForm() {
     return new Book (
-        titleField.value, authorField.value, pagesField.value, hadReadCheckbox.value
+        titleField.value, authorField.value, pagesField.value, hasReadCheckbox.value
     )
 }
 
@@ -86,7 +86,7 @@ function populateFormWithSelectedBook(arrayPosition) {
     titleField.value = myLibrary[arrayPosition].title
     authorField.value = myLibrary[arrayPosition].author
     pagesField.value = myLibrary[arrayPosition].pages
-    hadReadCheckbox.value = myLibrary[arrayPosition].hasRead
+    hasReadCheckbox.value = myLibrary[arrayPosition].hasRead
 }
 
 function dismissPopup() { window.location = "#" }
@@ -142,17 +142,11 @@ function updateBookElementsFromArray() {
     setHasReadButtonListener()
 }
 
-// document.querySelector(".card-holder button").addEventListener("click", () => {
-//     console.log("clicked!")
-// })
-
 function Book(title, author, pages, hasRead) {
     this.title = title
     this.author = author
     this.pages = pages
     this.hasRead = hasRead
-
-    if (hasRead) this.hasRead = "Read"; else this.hasRead = "Not Read"
 }
 
 // document.addEventListener("click", (e) => {
@@ -166,8 +160,6 @@ function closePopUp() {
     const popUp = document.querySelector(".modal")
     popUp.style.display = "none"
 }
-
-///////////////////////////////////////////////////////////
 
 let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true), new Book("No Dogs Go To Hell", "Miff Stabson", "18", true),  new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)]
 
