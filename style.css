@@ -65,8 +65,9 @@
 .card-holder #edit-image {
     padding: 0px;
     margin-left: auto;
-    margin-top: -30px;
+    margin-top: auto;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .card-holder .title {
@@ -98,7 +99,7 @@
     display: flex;
     margin-top: 20px;
     justify-content: center;
-    gap: 15px
+    gap: 15px;
 }
 
 .read-yet #read-checkbox {

@@ -128,11 +128,12 @@ function updateBookElementsFromArray() {
         hasReadButton.innerText = hasReadText
         hasReadDiv.appendChild(hasReadButton)
     
-        bookDiv.appendChild(editElement)
         bookDiv.appendChild(titleDiv)
         bookDiv.appendChild(authorDiv)
         bookDiv.appendChild(pagesDiv)
         bookDiv.appendChild(hasReadDiv)
+        bookDiv.appendChild(editElement)
+
     
         bookCards.appendChild(bookDiv)        
     })
