@@ -2,6 +2,7 @@
 const login = document.querySelector(".log-in")
 const addBook = document.querySelector("#add-image")
 const bookCards = document.querySelector(".card-holder")
+const hasReadButton = document.getElementById("has-read-button")
 const popupHeader = document.getElementById("form-header")
 const titleField = document.getElementById("title-form")
 const authorField = document.getElementById("author-form")
@@ -133,9 +134,17 @@ function updateBookElementsFromArray() {
         pagesDiv.innerText = myLibrary[index].pages + " pages"
     
         const hasReadButton = document.createElement("button")
-
+        hasReadButton.setAttribute("id", "has-read-button")
+      
+        //Elements are not being created until this populates, so we need to change their CSS here.
         let hasReadText = ""
-        if (myLibrary[index].hasRead) hasReadText = "Read"; else hasReadText = "Not Read"
+        if (myLibrary[index].hasRead) {
+            hasReadText = "Read"
+            hasReadButton.style.backgroundColor = "#a7f3d0"
+       } else {
+            hasReadText = "Not Read"
+            hasReadButton.style.backgroundColor = "#fecaca"
+          }
 
         hasReadButton.innerText = hasReadText
         hasReadDiv.appendChild(hasReadButton)
@@ -163,7 +172,7 @@ function updateBookElementsFromArray() {
         bookDiv.appendChild(hasReadDiv)
         bookDiv.appendChild(iconsDiv)
     
-        bookCards.appendChild(bookDiv)        
+        bookCards.appendChild(bookDiv)
     })
 
     setDeleteButtonListener()
