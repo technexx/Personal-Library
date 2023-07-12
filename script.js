@@ -21,6 +21,17 @@ function clearFormFields() {
     pagesField.value = ""
 }
 
+function setDeleteButtonListener() {
+    const buttons = document.querySelectorAll("#delete-image")
+
+    buttons.forEach(function callback(value, index) {
+        buttons[index].addEventListener("click", () => {
+            myLibrary.splice(index, 1)
+            updateBookElementsFromArray()
+        })
+    })
+}
+
 function setEditButtonListener() {
     const buttons = document.querySelectorAll("#edit-image")
 
@@ -44,10 +55,6 @@ function setHasReadButtonListener() {
             updateBookElementsFromArray()
         })
     })
-}
-
-function deleteBookFromLibrary(position) {
-
 }
 
 submitButton.addEventListener("click", () => {
@@ -150,6 +157,7 @@ function updateBookElementsFromArray() {
         bookCards.appendChild(bookDiv)        
     })
 
+    setDeleteButtonListener()
     setEditButtonListener()
     setHasReadButtonListener()
 }
