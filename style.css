@@ -61,13 +61,17 @@
     gap: 10px;
 }
 
-/*auto margin fills up empty space*/
-.card-holder #edit-image {
-    padding: 0px;
-    margin-left: auto;
-    margin-top: auto;
+.card-holder .icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#delete-image {
+    margin-left: 10px;
+}
+
+#edit-image {
     margin-right: 10px;
-    margin-bottom: 10px;
 }
 
 .card-holder .title {
@@ -121,6 +125,7 @@
     font-size: 22px;
 }
 
+/*auto margin fills up empty space*/
 #submit {
     display: block;
     justify-content: center;

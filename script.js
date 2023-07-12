@@ -46,7 +46,7 @@ function setHasReadButtonListener() {
     })
 }
 
-function deleteBookFromLibrary() {
+function deleteBookFromLibrary(position) {
 
 }
 
@@ -105,20 +105,16 @@ function updateBookElementsFromArray() {
         const authorDiv = document.createElement("div")
         const pagesDiv = document.createElement("div")
         const hasReadDiv = document.createElement("div")
-        const editElement = document.createElement("img")
+        const iconsDiv = document.createElement("div")
     
         titleDiv.classList.add("title")
         authorDiv.classList.add("author")
         pagesDiv.classList.add("pages")
         hasReadDiv.classList.add("hasRead")
-        editElement.setAttribute("id", "edit-image")
         
         titleDiv.innerText = myLibrary[index].title
         authorDiv.innerText = myLibrary[index].author
         pagesDiv.innerText = myLibrary[index].pages + " pages"
-        editElement.src = "./images/pencil.svg"
-        editElement.style.width = "25px"
-        editElement.style.height = "25px"
     
         const hasReadButton = document.createElement("button")
 
@@ -127,13 +123,29 @@ function updateBookElementsFromArray() {
 
         hasReadButton.innerText = hasReadText
         hasReadDiv.appendChild(hasReadButton)
+
+        iconsDiv.classList.add("icons")
+        const editElement = document.createElement("img")
+        const deleteElement = document.createElement("img")
+
+        editElement.setAttribute("id", "edit-image")
+        editElement.src = "./images/pencil.svg"
+        editElement.style.width = "25px"
+        editElement.style.height = "25px"
+
+        deleteElement.setAttribute("id", "delete-image")
+        deleteElement.src = "/images/delete.svg"
+        deleteElement.style.width = "25px"
+        deleteElement.style.height = "25px"
+
+        iconsDiv.appendChild(deleteElement)
+        iconsDiv.appendChild(editElement)
     
         bookDiv.appendChild(titleDiv)
         bookDiv.appendChild(authorDiv)
         bookDiv.appendChild(pagesDiv)
         bookDiv.appendChild(hasReadDiv)
-        bookDiv.appendChild(editElement)
-
+        bookDiv.appendChild(iconsDiv)
     
         bookCards.appendChild(bookDiv)        
     })
