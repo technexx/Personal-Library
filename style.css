@@ -32,7 +32,6 @@
 .add-button button {
     width: 100px;
     height: auto;
-    /* background-color: white; */
 }
 
 .heading .title {
@@ -64,6 +63,8 @@
 .card-holder .icons {
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: 10px;
 }
 
 #delete-image {

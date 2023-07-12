@@ -1,5 +1,6 @@
 
 const bookCards = document.querySelector(".card-holder")
+const popupHeader = document.getElementById("form-header")
 const titleField = document.getElementById("title-form")
 const authorField = document.getElementById("author-form")
 const pagesField = document.getElementById("pages-form")
@@ -13,6 +14,7 @@ document.querySelector(".add-button").addEventListener("click", () => {
     window.open("#add-popup", "_parent")
     addOrEditMode = "ADD"
     clearFormFields()
+    popupHeader.innerText = "Add a book!"
 })
 
 function clearFormFields() {
@@ -41,6 +43,7 @@ function setEditButtonListener() {
             populateFormWithSelectedBook(index)
             addOrEditMode = "EDIT"
             selectedBookPosition = index
+            popupHeader.innerText = "Edit your book!"
         })
     })
 }
