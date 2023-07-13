@@ -1,3 +1,4 @@
+//Todo: Popup sizing and outside click dismissal
 
 const login = document.querySelector(".log-in")
 const addBook = document.querySelector("#add-image")
