@@ -1,8 +1,9 @@
 //Todo: Popup sizing and outside click dismissal
 
 const login = document.querySelector(".log-in")
+const modal = document.querySelector(".modal")
 const addBook = document.querySelector("#add-image")
-const closePopup = document.querySelector(".box-close")
+const closeBook = document.querySelector(".box-close")
 
 const bookCards = document.querySelector(".card-holder")
 const hasReadButton = document.getElementById("has-read-button")
@@ -22,15 +23,14 @@ login.addEventListener("click", () => {
 
 addBook.addEventListener("click", () => { 
     window.open("#add-popup", "_parent")
-
     addOrEditMode = "ADD"
     popupHeader.innerText = "Add a book!"
     clearFormFields()
 })
 
-// closePopUp.addEventListener("click", () => {
-//     console.log("clicked")
-// })
+closeBook.addEventListener("click", () => {
+    window.open("#", "_parent")
+})
 
 function clearFormFields() {
     titleField.value = ""
@@ -204,10 +204,10 @@ function Book(title, author, pages, hasRead) {
 //     } 
 // })
 
-function closePopUp() {
-    const popUp = document.querySelector(".modal")
-    popUp.style.display = "none"
-}
+// function closePopUp() {
+//     const popUp = document.querySelector(".modal")
+//     popUp.style.display = "none"
+// }
 
 let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true), new Book("No Dogs Go To Hell", "Miff Stabson", "18", true),  new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)]
 

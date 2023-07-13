@@ -164,6 +164,10 @@
     font-size: 24px;
 }
 
+#submit:hover {
+    cursor: pointer;
+}
+
 .modal {
     align-items: center;
     display: flex;
@@ -193,12 +197,12 @@
     opacity: 1;
 }
 
-.content:target {
+/* .content:target {
     animation-name: book-animation-open;
     animation-duration: 2s;
     animation-direction: alternate;
     animation-timing-function: linear;
-}
+} */
 
 @keyframes book-animation-open {
     0% { opacity: 0; transform: scale(0.1); }
@@ -217,6 +221,10 @@
     color: #fe0606;
     text-decoration: none;
     font-size: 30px;
+}
+
+.box-close:hover {
+    cursor: pointer;
 }
 
 @font-face {
