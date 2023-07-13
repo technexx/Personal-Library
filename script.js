@@ -2,6 +2,8 @@
 
 const login = document.querySelector(".log-in")
 const addBook = document.querySelector("#add-image")
+const closePopup = document.querySelector(".box-close")
+
 const bookCards = document.querySelector(".card-holder")
 const hasReadButton = document.getElementById("has-read-button")
 const popupHeader = document.getElementById("form-header")
@@ -20,10 +22,15 @@ login.addEventListener("click", () => {
 
 addBook.addEventListener("click", () => { 
     window.open("#add-popup", "_parent")
+
     addOrEditMode = "ADD"
     popupHeader.innerText = "Add a book!"
     clearFormFields()
 })
+
+// closePopUp.addEventListener("click", () => {
+//     console.log("clicked")
+// })
 
 function clearFormFields() {
     titleField.value = ""

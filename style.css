@@ -23,20 +23,6 @@
     margin-bottom: 20px;
 }
 
-.add-button {
-    display: flex;
-    justify-content: center;
-}
-
-.add-button:hover {
-    cursor: pointer;
-}
-
-.add-button button {
-    width: 100px;
-    height: auto;
-}
-
 .heading .title {
     margin-left: 3vw;
     font-weight: bold;
@@ -48,6 +34,15 @@
 }
 
 .log-in:hover {
+    cursor: pointer;
+}
+
+.add-button {
+    display: flex;
+    justify-content: center;
+}
+
+.add-button:hover {
     cursor: pointer;
 }
 
@@ -191,16 +186,16 @@
     height: 400px;
     padding: 1em 2em;
     border-radius: 10px;
-
-    animation-name: book-animation-open;
-    animation-duration: .3s;
-    animation-direction: alternate;
-    animation-timing-function: linear;
 }
 
-#popup-close {
-    animation-name: book-animation-close;
-    animation-duration: .3s;
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.content:target {
+    animation-name: book-animation-open;
+    animation-duration: 2s;
     animation-direction: alternate;
     animation-timing-function: linear;
 }
@@ -214,21 +209,6 @@
     0% { opacity: 1; transform: scale(1.0); }
     100% { opacity: 0; transform: scale(0.1); }
   }
-
-@-webkit-keyframes book-animation-open {
-0% { opacity: 0;-webkit-transform: scale(0.1); }
-100% { opacity: 1;-webkit-transform: scale(1); }
-}
-
-@-moz-keyframes book-animation-open {
-0% { opacity: 0;-moz-transform: scale(0.1); }
-100% { opacity: 1;-moz-transform: scale(1); }
-}
-
-.modal:target {
-    visibility: visible;
-    opacity: 1;
-}
 
 .box-close {
     position: absolute;
