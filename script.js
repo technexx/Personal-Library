@@ -1,7 +1,7 @@
-//Todo: Popup sizing and outside click dismissal
 
 const login = document.querySelector(".log-in")
 const modal = document.querySelector(".modal")
+const modalContent = document.querySelector(".content")
 const addBook = document.querySelector("#add-image")
 const closeBook = document.querySelector(".box-close")
 
@@ -17,10 +17,6 @@ const submitButton = document.getElementById("submit")
 let addOrEditMode = ""
 let selectedBookPosition = ""
 
-login.addEventListener("click", () => {
-    window.open("#", "_parent")
-})
-
 addBook.addEventListener("click", () => { 
     window.open("#add-popup", "_parent")
     addOrEditMode = "ADD"
@@ -29,6 +25,10 @@ addBook.addEventListener("click", () => {
 })
 
 closeBook.addEventListener("click", () => {
+    window.open("#", "_parent")
+})
+
+login.addEventListener("click", () => {
     window.open("#", "_parent")
 })
 
@@ -71,9 +71,23 @@ function setHasReadButtonListener() {
             myLibrary[index].hasRead = !myLibrary[index].hasRead
             hasReadCheckbox.checked = myLibrary[index].hasRead
             updateBookElementsFromArray()
+
         })
     })
 }
+
+//Is this using the original checked state when checking conditional?
+hasReadCheckbox.addEventListener("click", () => {
+    if (hasReadCheckbox.checked) {
+        hasReadCheckbox.checked = false 
+        console.log("turning unchecked")
+    }
+    if (!hasReadCheckbox.checked) {
+        hasReadCheckbox.checked = true 
+        console.log("turning checked")
+    }
+    // console.log(hasReadCheckbox.checked)
+})
 
 submitButton.addEventListener("click", () => {
     if (checkFormFieldsHaveText()) {
@@ -105,7 +119,6 @@ function bookObjectFromForm() {
 function checkFormFieldsHaveText() {
     if (titleField.value.length >=2 && authorField.value.length >=2 && pagesField.value.length >= 1) { return true; }
 }
-
 
 function populateFormWithSelectedBook(arrayPosition) {
     titleField.value = myLibrary[arrayPosition].title

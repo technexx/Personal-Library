@@ -42,7 +42,7 @@
     justify-content: center;
 }
 
-.add-button:hover {
+.add-button img:hover {
     cursor: pointer;
 }
 
@@ -224,6 +224,10 @@
 }
 
 .box-close:hover {
+    cursor: pointer;
+}
+
+#read-checkbox:hover {
     cursor: pointer;
 }
 
