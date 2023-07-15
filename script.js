@@ -76,19 +76,6 @@ function setHasReadButtonListener() {
     })
 }
 
-//Is this using the original checked state when checking conditional?
-hasReadCheckbox.addEventListener("click", () => {
-    if (hasReadCheckbox.checked) {
-        hasReadCheckbox.checked = false 
-        console.log("turning unchecked")
-    }
-    if (!hasReadCheckbox.checked) {
-        hasReadCheckbox.checked = true 
-        console.log("turning checked")
-    }
-    // console.log(hasReadCheckbox.checked)
-})
-
 submitButton.addEventListener("click", () => {
     if (checkFormFieldsHaveText()) {
         if (addOrEditMode === "ADD") {
@@ -112,7 +99,7 @@ function editBookFromArray(position) {
 
 function bookObjectFromForm() {
     return new Book (
-        titleField.value, authorField.value, pagesField.value, hasReadCheckbox.value
+        titleField.value, authorField.value, pagesField.value, hasReadCheckbox.checked
     )
 }
 
@@ -124,7 +111,7 @@ function populateFormWithSelectedBook(arrayPosition) {
     titleField.value = myLibrary[arrayPosition].title
     authorField.value = myLibrary[arrayPosition].author
     pagesField.value = myLibrary[arrayPosition].pages
-    hasReadCheckbox.value = myLibrary[arrayPosition].hasRead
+    hasReadCheckbox.checked = myLibrary[arrayPosition].hasRead
 }
 
 function dismissPopup() { window.location = "#" }
