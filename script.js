@@ -24,6 +24,10 @@ let selectedBookPosition = ""
 //     clearFormFields()
 // })
 
+login.addEventListener("click", () => {
+    window.open("#", "_parent")
+})
+
 closeBook.addEventListener("click", () => {
     window.open("#", "_parent")
 })
@@ -34,20 +38,25 @@ document.addEventListener("click", (e) => {
         addOrEditMode = "ADD"
         popupHeader.innerText = "Add a book!"
         clearFormFields()
-        console.log("add")
     } else if (e.target.closest("#edit-image")) {
         window.open("#add-popup", "_parent")
         addOrEditMode = "EDIT"
         popupHeader.innerText = "Edit your book!"
     } else if (!e.target.closest(".content")) {
         window.open("#", "_parent")
-        console.log("modal content")
     } 
 })
 
-login.addEventListener("click", () => {
-    window.open("#", "_parent")
-})
+function setEditButtonListener() {
+    const buttons = document.querySelectorAll("#edit-image")
+
+    buttons.forEach(function callback(value, index) {
+        buttons[index].addEventListener("click", () => {
+            populateFormWithSelectedBook(index)
+            selectedBookPosition = index
+        })
+    })
+}
 
 function clearFormFields() {
     titleField.value = ""
@@ -66,17 +75,6 @@ function setDeleteButtonListener() {
     })
 }
 
-function setEditButtonListener() {
-    const buttons = document.querySelectorAll("#edit-image")
-
-    buttons.forEach(function callback(value, index) {
-        buttons[index].addEventListener("click", () => {
-            populateFormWithSelectedBook(index)
-            selectedBookPosition = index
-        })
-    })
-}
-
 function setHasReadButtonListener() {
     const buttons = bookCards.querySelectorAll("button")
 
@@ -85,7 +83,6 @@ function setHasReadButtonListener() {
             myLibrary[index].hasRead = !myLibrary[index].hasRead
             hasReadCheckbox.checked = myLibrary[index].hasRead
             updateBookElementsFromArray()
-
         })
     })
 }
