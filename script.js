@@ -17,15 +17,32 @@ const submitButton = document.getElementById("submit")
 let addOrEditMode = ""
 let selectedBookPosition = ""
 
-addBook.addEventListener("click", () => { 
-    window.open("#add-popup", "_parent")
-    addOrEditMode = "ADD"
-    popupHeader.innerText = "Add a book!"
-    clearFormFields()
-})
+// addBook.addEventListener("click", () => { 
+//     window.open("#add-popup", "_parent")
+//     addOrEditMode = "ADD"
+//     popupHeader.innerText = "Add a book!"
+//     clearFormFields()
+// })
 
 closeBook.addEventListener("click", () => {
     window.open("#", "_parent")
+})
+
+document.addEventListener("click", (e) => {
+    if (e.target.closest("#add-image")) {
+        window.open("#add-popup", "_parent")
+        addOrEditMode = "ADD"
+        popupHeader.innerText = "Add a book!"
+        clearFormFields()
+        console.log("add")
+    } else if (e.target.closest("#edit-image")) {
+        window.open("#add-popup", "_parent")
+        addOrEditMode = "EDIT"
+        popupHeader.innerText = "Edit your book!"
+    } else if (!e.target.closest(".content")) {
+        window.open("#", "_parent")
+        console.log("modal content")
+    } 
 })
 
 login.addEventListener("click", () => {
@@ -54,11 +71,8 @@ function setEditButtonListener() {
 
     buttons.forEach(function callback(value, index) {
         buttons[index].addEventListener("click", () => {
-            window.open("#add-popup", "_parent")
             populateFormWithSelectedBook(index)
-            addOrEditMode = "EDIT"
             selectedBookPosition = index
-            popupHeader.innerText = "Edit your book!"
         })
     })
 }
@@ -196,18 +210,6 @@ function Book(title, author, pages, hasRead) {
     this.pages = pages
     this.hasRead = hasRead
 }
-
-// document.addEventListener("click", (e) => {
-//     // console.log(document.querySelector(".modal").style.visibility)
-//     if (!e.target.closest(".content")) {
-//         closePopUp()
-//     } 
-// })
-
-// function closePopUp() {
-//     const popUp = document.querySelector(".modal")
-//     popUp.style.display = "none"
-// }
 
 let myLibrary = [new Book("A Tale of Two Tattle Tales", "Zac Caz", "666", true), new Book("No Dogs Go To Hell", "Miff Stabson", "18", true),  new Book("How Can It Be When It Ain't So?", "Railyard Chechnya", "1502", false)]
 
